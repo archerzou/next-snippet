@@ -2,7 +2,7 @@
 import { Language, Snippet, Technology } from "@prisma/client";
 import { db } from "@/app/lib/db";
 import { z } from "zod";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 const updateSnippetSchema = z
   .object({

@@ -9,6 +9,9 @@ import { frFR, enUS } from "@clerk/localizations";
 export const metadata: Metadata = {
   title: "Snipia",
   description: "The one place for all your code snippets",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 const clerkI18n = {

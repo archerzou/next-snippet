@@ -1,4 +1,4 @@
-import { authMiddleware } from "@clerk/nextjs";
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
 import createMiddleware from "next-intl/middleware";
 import { LOCALES } from "./i18n";
@@ -7,15 +7,12 @@ const intlMiddleware = createMiddleware({
   defaultLocale: "en",
 });
 
-export default authMiddleware({
-  beforeAuth(request) {
-    if (!request.url.includes("/api")) {
-      return intlMiddleware(request);
-    }
-  },
-  publicRoutes: ["/:locale/sign-in", "/:locale/sign-up", "/api/:path*"],
+export default clerkMiddleware((auth, req) => {
+  if (!req.url.includes("/api")) {
+    return intlMiddleware(req);
+  }
 });
 
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.+.[w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };

@@ -1,6 +1,6 @@
 "use server";
 import { db } from "@/app/lib/db";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { Language, Snippet, Technology } from "@prisma/client";
 import { z } from "zod";
 
