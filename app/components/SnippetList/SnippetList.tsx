@@ -1,3 +1,5 @@
+"use client";
+
 import { Snippet } from "@prisma/client";
 import { SnippetCard } from "../SnippetCard/SnippetCard";
 
