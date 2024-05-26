@@ -1,5 +1,4 @@
 "use client";
-import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { RiSearchLine } from "react-icons/ri";
 export function SearchBar(p: {
@@ -7,7 +6,6 @@ export function SearchBar(p: {
   placeholder: string;
 }) {
   const router = useRouter();
-  const t = useTranslations("main");
   const input = (
     <div className="relative w-full">
       <input
@@ -25,7 +23,7 @@ export function SearchBar(p: {
         className="min-w-max"
         onClick={() => router.push("/snippets/create")}
       >
-        {t("addButton")}
+        + ADD
       </button>
     </div>
   );
