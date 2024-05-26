@@ -7,6 +7,8 @@ export default async function MainPage() {
   const { data: snippets } = await readAllSnippet();
   const t = await getTranslations("main");
   const messages = await getMessages();
+  console.log("debug", snippets);
+
   return (
     <NextIntlClientProvider messages={messages}>
       <SnippetSearch snippets={snippets} placeholder={t("searchPlaceholder")} />
